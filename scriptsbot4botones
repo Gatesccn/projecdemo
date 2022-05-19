@@ -5,8 +5,8 @@ echo -e "\nINSTALANDO ESPERE...."
 apt update -y > /dev/null 2>&1 && apt install unzip at jq curl -y > /dev/null 2>&1
 mkdir $HOME/BOT
 cd $HOME/BOT && wget https://github.com/Gatesccn/projecdemo/raw/main/botventassh.zip
-unzip botteste.zip > /dev/null 2>&1 && rm botteste.zip > /dev/null 2>&1
+unzip botventassh.zip > /dev/null 2>&1 && rm botventassh.zip > /dev/null 2>&1
 chmod +x $(ls)
-mv botteste /bin/botteste
+mv botventassh /bin/botventassh
 clear && echo -e "INSTALADO CON EXITO !\nPARA ENTRAR ESCRIBA botteste"
-cd $HOME && rm inst-botteste > /dev/null 2>&1
+cd $HOME && rm inst-botventassh > /dev/null 2>&1
