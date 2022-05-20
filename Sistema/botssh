@@ -20,10 +20,11 @@ ShellBot.username
 # - Funcao menu
 menu() {
     local msg
-        msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
-        msg+="<b>🤖 OLA SEJA BEM VINDO(a) 🤖</b>\n"
-        msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
-        msg+="Gere seu teste agora mesmo!"
+msg+="✌️😃 Hola <b>${message_from_first_name[$id]}</b>, Bienvenido!\n"
+        msg+="▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"
+        msg+="<b>Genere Su Usuario Gratis</b>\n"
+        msg+="▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"
+        msg+="<b>Funcionable para Cualquier pais que use cloudflare</b>\n"
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
         --reply_markup "$keyboard1" \
@@ -31,18 +32,18 @@ menu() {
         return 0
 }
 
-# - funcao criar ssh
+# - funcion crear usuario por 2 horas
 criarteste() {
     [[ $(grep -wc ${callback_query_from_id} lista) != '0' ]] && {
       ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "VC JA CRIOU SSH HOJE !"
+        --text "❌ Acceso denegado, consulta la hora de tu última creación y regresa solo cuando completes las 48 horas de tu última creación."
       return 0
     }
-    usuario=$(echo teste$(( RANDOM% + 250 )))
+    usuario=$(echo Prueba$(( RANDOM% + 250 )))
     senha=$((RANDOM% + 99999))
     limite='1'
-    tempo='1'
-    tuserdate=$(date '+%C%y/%m/%d' -d " +1 days")
+    tempo='2'
+    tuserdate=$(date '+%C%y/%m/%d' -d " +2 days")
     useradd -M -N -s /bin/false $usuario -e $tuserdate > /dev/null 2>&1
     (echo "$senha";echo "$senha") | passwd $usuario > /dev/null 2>&1
     echo "$senha" > /etc/SSHPlus/senha/$usuario
@@ -58,23 +59,23 @@ rm -rf /etc/SSHPlus/userteste/$usuario.sh" > /etc/SSHPlus/userteste/$usuario.sh
     echo ${callback_query_from_id} >> lista
     # - ENVIA O SSH
     ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-    --text "$(echo -e "✅ <b>Criado com sucesso</b> ✅\n\nIP: $(cat /etc/IP)\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\n\n⏳ Expira em: $tempo Hora")" \
+    --text "$(echo -e "✅ <b>Creado con exito </b> ✅\n\nIP: $ip_server2\nUSUARIO: <code>$usuario</code>\nContraseña: <code>$senha</code>\n\n⏳ Expira en: $tempo Hora")" \
     --parse_mode html
     return 0
 }
 
-# - funcao criar ssh 2
+# - funcion ssh 1 hora
 criarteste2() {
    [[ $(grep -wc ${callback_query_from_id} lista) != '0' ]] && {
       ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "VC JA CRIOU SSH HOJE !"
+        --text "❌ Acceso denegado, consulta la hora de tu última creación y regresa solo cuando completes las 48 horas de tu última creación."
       return 0
     }
     usuario=$(echo teste$(( RANDOM% + 250 )))
     senha=$((RANDOM% + 99999))
     limite='1'
     tempo='1'
-    tuserdate=$(date '+%C%y/%m/%d' -d " +1 days")
+    tuserdate=$(date '+%C%y/%m/%d' -d " +2 days")
     if sshpass -p "$senha_server2" ssh -o ConnectTimeout=2 -o StrictHostKeyChecking=no root@$ip_server2 echo "ok" 1>/dev/null 2>/dev/null; then
 		sshpass -p "$senha_server2" ssh -o ConnectTimeout=2 -o StrictHostKeyChecking=no root@$ip_server2 << EOF
 		useradd -M -N -s /bin/false $usuario -e $tuserdate > /dev/null 2>&1
@@ -93,29 +94,29 @@ EOF
 	echo ${callback_query_from_id} >> lista
     # - ENVIA O SSH
     ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-    --text "$(echo -e "✅ <b>Criado com sucesso</b> ✅\n\nIP: $ip_server2\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\n\n⏳ Expira em: $tempo Hora")" \
+    --text "$(echo -e "✅ <b>Creado con exito </b> ✅\n\nIP: $ip_server2\nUSUARIO: <code>$usuario</code>\nContraseña: <code>$senha</code>\n\n⏳ Expira en: $tempo Hora")" \
     --parse_mode html
     return 0
 else
 ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-	--text "$(echo -e Erro Tente novamente Mais tarde!)" \
+	--text "$(echo -e ERROR INTENTA NUEVAMENTE MAS TARDE!)" \
 	--parse_mode html
 	return 0
 fi
 }
 
-# - funcao criar ssh 3
+# - funcion ssh 3 horas
 criarteste3() {
 	[[ $(grep -wc ${callback_query_from_id} lista) != '0' ]] && {
       ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "VC JA CRIOU SSH HOJE !"
+        --text "❌ Acceso denegado, consulta la hora de tu última creación y regresa solo cuando completes las 48 horas de tu última creación."
       return 0
     }
     usuario=$(echo teste$(( RANDOM% + 250 )))
     senha=$((RANDOM% + 99999))
     limite='1'
-    tempo='1'
-    tuserdate=$(date '+%C%y/%m/%d' -d " +1 days")
+    tempo='3'
+    tuserdate=$(date '+%C%y/%m/%d' -d " +2 days")
     if sshpass -p "$senha_server3" ssh -o ConnectTimeout=2 -o StrictHostKeyChecking=no root@$ip_server3 echo "ok" 1>/dev/null 2>/dev/null; then
 		sshpass -p "$senha_server3" ssh -o ConnectTimeout=2 -o StrictHostKeyChecking=no root@$ip_server3 << EOF
 		useradd -M -N -s /bin/false $usuario -e $tuserdate > /dev/null 2>&1
@@ -134,12 +135,12 @@ EOF
 	echo ${callback_query_from_id} >> lista
     # - ENVIA O SSH
     ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-    --text "$(echo -e "✅ <b>Criado com sucesso</b> ✅\n\nIP: $ip_server3\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\n\n⏳ Expira em: $tempo Hora")" \
+    --text "$(echo -e "✅ <b>Creado con exito </b> ✅\n\nIP: $ip_server2\nUSUARIO: <code>$usuario</code>\nContraseña: <code>$senha</code>\n\n⏳ Expira en: $tempo Hora")" \
     --parse_mode html
     return 0
 else
 ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-	--text "$(echo -e Erro Tente novamente Mais tarde!)" \
+	--text "$(echo -e ERROR INTENTA NUEVAMENTE MAS TARDE!)" \
 	--parse_mode html
 	return 0
 fi
@@ -158,7 +159,7 @@ botao1=''
 ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '🇧🇷 TESTE BR1 🇧🇷' --callback_data 'gerarssh'
 ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '🇧🇷 TESTE BR2 🇧🇷' --callback_data 'gerarssh2'
 ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '🇧🇷 TESTE BR3 🇧🇷' --callback_data 'gerarssh3'
-ShellBot.InlineKeyboardButton --button 'botao1' --line 2 --text '🇧🇷 SSH PREMIUM 🇧🇷' --callback_data '2' --url 't.me/sshplus' # LINK TELEGRAM
+ShellBot.InlineKeyboardButton --button 'botao1' --line 2 --text '🇧🇷 SSH PREMIUM 🇧🇷' --callback_data '2' --url 't.me/GATESCCN' # LINK TELEGRAM
 ShellBot.regHandleFunction --function criarteste --callback_data gerarssh
 ShellBot.regHandleFunction --function criarteste2 --callback_data gerarssh2
 ShellBot.regHandleFunction --function criarteste3 --callback_data gerarssh3
