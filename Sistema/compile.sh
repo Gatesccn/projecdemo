@@ -5,23 +5,23 @@ if [ -f "/usr/local/bin/badvpn-udpgw" ]
 then
 	tput setaf 3 ; tput bold ; echo ""
 	echo ""
-	echo "O BadVPN já foi instalado com sucesso."
-	echo "Para executar, crie uma sessão screen"
+	echo "BadVPN YA FUE INSTALADO CON EXITO."
+	echo "Para ejecutar, cree una sesión de pantalla"
 	echo "E execute o comando:"
 	echo ""
 	echo "badudp"
 	echo ""
-	echo "E deixe a sessão screen rodando em segundo plano."
+	echo "Y deja la sesión de pantalla ejecutándose en segundo plano.."
 	echo "" ; tput sgr0
 	exit
 else
 tput setaf 2 ; tput bold ; echo ""
-echo -e "\033[1;36mEste é um script que compila e instala automaticamente o programa BadVPN em servidores Debian e Ubuntu para ativar o encaminhamento UDP na porta 7300, usado por programas como HTTP Injector da Evozi. Permitindo assim a utilização do protocolo UDP para jogos online, chamadas VoIP e outras coisas interessantes.\033[0m"
+echo -e "\033[1;36mEste es un script que compila e instala automáticamente el programa BadVPN en servidores Debian y Ubuntu para habilitar el reenvío UDP en el puerto 7300, utilizado por programas como HTTP Injector de Evozi. Permitiendo así el uso del protocolo UDP para juegos online, llamadas VoIP y otras cosas interesantes.\033[0m"
 echo "" ; tput sgr0
-read -p "Deseja continuar? [s/n]: " -e -i n resposta
+read -p "DESEA continuar? [s/n]: " -e -i n resposta
 if [[ "$resposta" = 's' ]]; then
 	echo ""
-	echo -e "\033[1;31mA instalação pode demorar bastante... seja paciente!\033[0m"
+	echo -e "\033[1;31mA la instalación puede llevar mucho tiempo... sea paciente!\033[0m"
 	sleep 3
 	apt-get update -y
 	apt-get install screen wget gcc build-essential g++ make -y
@@ -52,7 +52,7 @@ if [[ "$resposta" = 's' ]]; then
 	clear
 	tput setaf 3 ; tput bold ; echo ""
 	echo ""
-	echo -e "\033[1;36mBadVPN instalado com sucesso. Para usar, crie uma sessão screen e execute o comando badudp e deixe a sessão screen rodando em segundo plano.\033[0m"
+	echo -e "\033[1;36mBadVPN instalado con éxito. Para usar, cree una sesión de pantalla y ejecute el comando badudp y deje la sesión de pantalla ejecutándose en segundo plano.\033[0m"
 	echo "" ; tput sgr0
 	exit
 else 
