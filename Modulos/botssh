@@ -1,9 +1,9 @@
 #!/bin/bash
 #====================================================
 #	SCRIPT: BOTSSH SSHPLUS MANAGER
-#	DESENVOLVIDO POR:	CRAZY_VPN
-#	CONTATO TELEGRAM:	http://t.me/crazy_vpn
-#	CANAL TELEGRAM:	http://t.me/sshplus
+#	DESENVOLVIDO POR:	el m andarin ssnif
+#	CONTATO TELEGRAM:	http://t.me/gatesccn
+#	CANAL TELEGRAM:	http://t.me/gatesccn
 #====================================================
 clear
 [[ $(awk -F" " '{print $2}' /usr/lib/licence) != "@KIRITO_SSH" ]] && exit 0
